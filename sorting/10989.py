@@ -8,5 +8,4 @@ for i in range(N):
 
 for b in range(len(series)):
     if series[b] !=0:
-        for c in range(series[b]):
-            print(b)
+        print(b)

@@ -5,7 +5,7 @@ def mergeSort(x):
         lx, rx = x[:mid], x[mid:]
         print("재귀전lx",x,lx)
         print("재귀전rx",x,rx)
-        mergeSort(lx)
+        mergeSort(lx) ##리턴하면 걍 이값이 그대로 이어지는듯.
         mergeSort(rx)
         print("재귀후lx",x,lx)
         print("재귀후rx",x,rx)
