@@ -1,13 +1,26 @@
-numbers = int(input())
-number_list = list(map(int, input().split()))
+import sys
+from collections import Counter
+  
+t = int(sys.stdin.readline())
+num_list = []
+for _ in range(t):
+    num_list.append(int(sys.stdin.readline())) 
 
-max_num = number_list[0]
-min_num = number_list[0]
-for num in number_list:
+def mode(x):
+    mode_dict = Counter(x)
+    modes = mode_dict.most_common()
+    if len(x) > 1 : 
+        if modes[0][1] == modes[1][1]:
+            mod = modes[1][0]
+        else : 
+            mod = modes[0][0]
+    else : 
+        mod = modes[0][0]
     
-    if num > max_num:
-        max_num = num
-    if num < min_num:
-        min_num = num
+    return mod
 
-print(min_num, max_num)
+print(round(sum(num_list) / len(num_list)))
+num_list.sort()
+print(num_list[len(num_list) // 2])
+print(mode(num_list))
+print(num_list[-1] - num_list[0])
