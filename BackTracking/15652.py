@@ -7,15 +7,27 @@ arr = []
 
 
 def dfs(cnt):
-    
+    print_flag=True
     # 주어진 개수만큼 채워지면 출력한다
     if(cnt == M):
-        print(*arr)
+        if cnt>1:
+            if arr[0]==min(arr):
+                for a in range(0,cnt-1):
+                    if arr[a]>arr[a+1]:
+                        #print(num_list[a],num_list[a+1])
+                        print_flag=False
+                if print_flag==True:
+                    print(*arr)
+                else:
+                    print_flag=True
+                
+        else:
+            print(*arr)
+        
         return
     
     for i in range(0, N):
-        if(check_list[i]):
-            continue
+        
         
         # i번째는 거쳐갈거라서 True로 바꾼다.
         check_list[i] = True
@@ -28,6 +40,8 @@ def dfs(cnt):
         # 여기서 print(arr)을 해보면 작동원리를 알 수 있다.
         #print(arr)
         #print(check_list)
-        check_list[i] = False
+        for j in range(i+1,N):
+            check_list[j]=False
+        
         
 dfs(0)

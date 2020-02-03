@@ -28,6 +28,8 @@ def dfs(cnt):
         # 여기서 print(arr)을 해보면 작동원리를 알 수 있다.
         #print(arr)
         #print(check_list)
-        check_list[i] = False
+        for j in range(i+1,N):
+            check_list[j]=False
+        
         
 dfs(0)

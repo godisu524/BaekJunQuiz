@@ -14,8 +14,7 @@ def dfs(cnt):
         return
     
     for i in range(0, N):
-        if(check_list[i]):
-            continue
+        
         
         # i번째는 거쳐갈거라서 True로 바꾼다.
         check_list[i] = True
@@ -28,6 +27,8 @@ def dfs(cnt):
         # 여기서 print(arr)을 해보면 작동원리를 알 수 있다.
         #print(arr)
         #print(check_list)
-        check_list[i] = False
+        for j in range(i+1,N):
+            check_list[j]=False
+        
         
 dfs(0)
